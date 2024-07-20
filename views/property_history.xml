@@ -1,0 +1,44 @@
+<odoo>
+    <record id="history_tree_view" model="ir.ui.view">
+        <field name="name">history tree</field>
+        <field name="model">property.history</field>
+        <field name="arch" type="xml">
+            <tree create="0" delete="0">
+                <field name="property_id" readonly="1"/>
+                <field name="user_id" readonly="1"/>
+                <field name="old_state" readonly="1"/>
+                <field name="new_state" readonly="1"/>
+                <field name="reason" readonly="1"/>
+            </tree>
+        </field>
+    </record>
+    <record id="history_form_view" model="ir.ui.view">
+        <field name="name">history form</field>
+        <field name="model">property.history</field>
+        <field name="arch" type="xml">
+            <form create="0" delete="0">
+                <sheet>
+                    <group>
+                        <field name="property_id" readonly="1"/>
+                        <field name="user_id" readonly="1"/>
+                        <field name="old_state" readonly="1"/>
+                        <field name="new_state" readonly="1"/>
+                        <field name="reason" readonly="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="history_action" model="ir.actions.act_window">
+        <field name="name">history action</field>
+        <field name="res_model">property.history</field>
+    </record>
+
+    <menuitem
+        id="history_menu_item"
+        name="History"
+        parent="properties_menu"
+        action="history_action"
+    />
+</odoo>
